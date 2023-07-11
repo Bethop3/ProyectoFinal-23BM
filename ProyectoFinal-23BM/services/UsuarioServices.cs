@@ -54,5 +54,26 @@ namespace ProyectoFinal_23BM.services
             }
 
         }
+        public void UpdateUser(Usuario request)
+        {
+            try
+            {
+                using(var _context = new ApplicationDbContext())
+                {
+                    Usuario usuario = new Usuario();
+                    usuario = _context.Usuarios.Find(request.pkUsuario);
+                    usuario.Nombre = request.Nombre;
+                    usuario.UserName = request.UserName;
+                    usuario.Password = request.Password;
+                    _context.Update(usuario);
+                    _context.SaveChanges();
+                }
+
+            }
+            catch(Exception ex)
+            {
+                throw new Exception("Erro: "+ex);
+            }
+        }
     }
 }

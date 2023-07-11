@@ -34,5 +34,10 @@ namespace ProyectoFinal_23BM.Vistas
             usuario.Password = txtPassword.Text;
             services.AddUser(usuario);
         }
+        private void BtnEditar (object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }
